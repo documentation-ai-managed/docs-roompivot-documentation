@@ -1,0 +1,139 @@
+---
+title: Changelog
+description: Review the version history of RoomPivot, including new features, improvements, and bug fixes.
+---
+
+## Overview
+
+RoomPivot evolves rapidly to deliver better AI-powered room staging and redesign. You stay updated through this changelog, which highlights key changes across releases. Check here for new features that enhance your workflow, improvements to performance, and resolutions to reported issues.
+
+<Callout kind="info">
+  Subscribe to our RSS feed or join the Discord community to receive notifications about new releases.
+</Callout>
+
+<Columns cols={3}>
+  <Card title="Latest" icon="zap" href="#latest">
+    v1.2.0 highlights and upgrade steps.
+  </Card>
+  <Card title="Previous" icon="trending-up" href="#previous">
+    Key enhancements from recent versions.
+  </Card>
+  <Card title="Known Issues" icon="alert-triangle" href="#known-issues">
+    Current resolutions and workarounds.
+  </Card>
+</Columns>
+
+## Latest Release
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added batch processing: Upload multiple room photos at once and generate staged versions in parallel.
+- Introduced custom style packs: Select from predefined themes like `modern-minimal`, `boho-chic`, or `industrial-loft`.
+
+## Improvements
+
+- Reduced generation time by 40% with optimized AI models.
+- Enhanced image quality for better lighting simulation and furniture placement accuracy.
+
+## Bug Fixes
+
+- Fixed rendering artifacts on high-resolution uploads `>4K`.
+- Resolved export failures when using `{API_KEY}` authentication.
+
+</Update>
+
+## Previous Updates
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Shareable links: Generate public URLs for redesigned rooms with expiration controls.
+- Integration with Zoom: Embed staged room previews directly into video calls.
+
+## Improvements
+
+- Dashboard now supports drag-and-drop uploads for faster iteration.
+
+## Bug Fixes
+
+- Corrected color palette mismatches in redesign suggestions.
+- Patched security vulnerability in image upload handling.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core AI staging engine: Transform any room photo in seconds.
+- Client demo mode: Watermarked exports for presentations.
+
+## Breaking Changes
+
+- Updated API endpoints from `/v0/stage` to `/v1/redesign`.
+
+</Update>
+
+## Upgrade Guide
+
+Follow these steps to update RoomPivot and access the latest features.
+
+<Steps>
+  <Step title="Check Current Version" icon="check-circle">
+
+    Use the dashboard or API to verify your version.
+
+    <CodeGroup tabs="JavaScript,cURL">
+      ```javascript
+      const response = await fetch('https://api.roompivot.com/v1/version', {
+        headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` }
+      });
+      const data = await response.json();
+      console.log(data.version); // e.g., "1.2.0"
+      ```
+      ```bash
+      curl -H "Authorization: Bearer YOUR_API_KEY" \
+           https://api.roompivot.com/v1/version
+      ```
+    </CodeGroup>
+
+  </Step>
+  <Step title="Update SDK" icon="download">
+    Install the latest SDK package.
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+        ```bash
+        npm update @roompivot/sdk@latest
+        ```
+      </Tab>
+      <Tab title="yarn" icon="package">
+        ```bash
+        yarn upgrade @roompivot/sdk@latest
+        ```
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Test New Features" icon="play-circle">
+    Run a test redesign on a sample room photo to confirm everything works.
+  </Step>
+</Steps>
+
+## Known Issues and Resolutions
+
+<ExpandableGroup>
+  <Expandable title="Slow generation on mobile networks" default-open="true">
+    Network throttling affects AI processing. Use Wi-Fi or upgrade to premium tier for priority queuing. Resolution planned in v1.2.1.
+  </Expandable>
+  <Expandable title="Custom furniture library import errors">
+    Large ZIP files `>50MB` fail. Compress assets and retry. Fixed in batch processing feature (v1.2.0).
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Report issues via the feedback form in your dashboard. Include room photo examples and browser details for faster resolutions.
+</Callout>
